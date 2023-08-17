@@ -46,4 +46,7 @@ fn main() {
    if let Err(err) = perform_ethereum_handshake("127.0.0.1:30303") {
         eprintln!("Error: {}", err);
     }
+      if let Err(err) = perform_ethereum_handshake("127.0.0.1:30304") {
+        eprintln!("Error: {}", err);
+    }
 }
