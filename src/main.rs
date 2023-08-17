@@ -43,7 +43,6 @@ fn perform_ethereum_handshake<A: ToSocketAddrs>(addr: A) -> Result<(), Box<dyn s
 //main function
 fn main() {
    //here handshake function will be called
-
    if let Err(err) = perform_ethereum_handshake("127.0.0.1:30303") {
         eprintln!("Error: {}", err);
     }
