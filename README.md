@@ -13,7 +13,7 @@ To verify that Rust is installed run following command
 
 **rustc --version**
 
-##Setup a p2p network.
+###Setup a p2p network.
 
 lets follow the command one by one
 
