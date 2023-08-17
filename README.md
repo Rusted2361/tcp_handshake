@@ -18,9 +18,13 @@ Once you are done with this need to setup a p2p network.
 lets follow the command one by one
 
 **git clone git@github.com:Rusted2361/tcp_handshake.git**
-**cd substrate-node-template
-cargo build --release
-./target/release/node-template --dev**
+
+**cd substrate-node-template**
+
+**cargo build --release**
+
+**./target/release/node-template --dev**
+
 
 The system will serve at local host on port 9944. This will start a local p2p dev network on your system that you can access on this link.
 
