@@ -2,18 +2,18 @@
 
 I have written this script in which we will run a p2p network using substrate node template.
 
-**Steps**
-First we need to install rust in our system by runnig the following command.
+#**Steps**
+
+##Setup RUST
+First we need to install rust in our system by running the following command.
 
 **curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh**
-
-Once the installation is complete, the installer will provide instructions on how to set up the Rust environment. 
-Typically, you'll need to add the Rust binaries to your system's PATH variable. This allows you to run Rust commands from any terminal window.
+ 
 To verify that Rust is installed run following command
 
 **rustc --version**
 
-Once you are done with this need to setup a p2p network.
+##Setup a p2p network.
 
 lets follow the command one by one
 
@@ -25,6 +25,7 @@ lets follow the command one by one
 
 **./target/release/node-template --dev**
 
+##Test Local p2p nodes
 
 The system will serve at local host on port 9944. This will start a local p2p dev network on your system that you can access on this link.
 
@@ -32,6 +33,7 @@ The system will serve at local host on port 9944. This will start a local p2p de
 
 After  setting up environment & running p2p network we need to test or tcp_handshake script.
 
+##Perform Handshake with p2p system
 we will simply go to the root directory and run command
 
 **cargo run 
