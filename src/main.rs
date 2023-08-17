@@ -3,18 +3,18 @@ use std::io::{Read, Write};
 use std::net::{TcpStream, ToSocketAddrs};
 
 // Ethereum protocol magic bytes
-const ETHEREUM_MAGIC: [u8; 4] = [0x22, 0x80, 0x9D, 0xF2];
+const SUBSTRATE_MAGIC: [u8; 4] = [0x22, 0x80, 0x9D, 0xF2];
 // Ethereum protocol version
-const ETHEREUM_VERSION: u32 = 5;
+const SUBSTRATE_VERSION: u32 = 5;
 
 //handshake function 
-fn perform_ethereum_handshake<A: ToSocketAddrs>(addr: A) -> Result<(), Box<dyn std::error::Error>> {
+fn perform_substrate_handshake<A: ToSocketAddrs>(addr: A) -> Result<(), Box<dyn std::error::Error>> {
     let mut stream = TcpStream::connect(addr)?;
 
     // Send the Ethereum handshake
     let mut handshake = Vec::new();
-    handshake.extend_from_slice(&ETHEREUM_MAGIC);
-    handshake.extend_from_slice(&ETHEREUM_VERSION.to_be_bytes());
+    handshake.extend_from_slice(&SUBSTRATE_MAGIC);
+    handshake.extend_from_slice(&SUBSTRATE_VERSION.to_be_bytes());
 
     // Send the handshake payload
     stream.write_all(&handshake)?;
@@ -26,7 +26,7 @@ fn perform_ethereum_handshake<A: ToSocketAddrs>(addr: A) -> Result<(), Box<dyn s
     stream.read_exact(&mut response_magic)?;
     stream.read_exact(&mut response_version)?;
 
-    if response_magic != ETHEREUM_MAGIC {
+    if response_magic != SUBSTRATE_MAGIC {
         return Err("Invalid magic bytes in response".into());
     }
 
@@ -43,10 +43,7 @@ fn perform_ethereum_handshake<A: ToSocketAddrs>(addr: A) -> Result<(), Box<dyn s
 //main function
 fn main() {
    //here handshake function will be called
-   if let Err(err) = perform_ethereum_handshake("127.0.0.1:30303") {
-        eprintln!("Error: {}", err);
-    }
-      if let Err(err) = perform_ethereum_handshake("127.0.0.1:30304") {
+   if let Err(err) = perform_substrate_handshake("127.0.0.1:30303") {
         eprintln!("Error: {}", err);
     }
 }
