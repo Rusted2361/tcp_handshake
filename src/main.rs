@@ -34,7 +34,7 @@ fn perform_substrate_handshake<A: ToSocketAddrs>(addr: A) -> Result<(), Box<dyn 
 
     // ... (Process the response, perform additional verification if needed)
 
-    println!("Ethereum handshake successful. Remote version: {}", remote_version);
+    println!("Substrate handshake successful. Remote version: {}", remote_version);
 
     Ok(())
 }
@@ -43,7 +43,7 @@ fn perform_substrate_handshake<A: ToSocketAddrs>(addr: A) -> Result<(), Box<dyn 
 //main function
 fn main() {
    //here handshake function will be called
-   if let Err(err) = perform_substrate_handshake("127.0.0.1:30303") {
+   if let Err(err) = perform_substrate_handshake("127.0.0.1:9944") {
         eprintln!("Error: {}", err);
     }
 }
