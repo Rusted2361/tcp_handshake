@@ -26,9 +26,9 @@ fn perform_substrate_handshake<A: ToSocketAddrs>(addr: A) -> Result<(), Box<dyn 
     stream.read_exact(&mut response_magic)?;
     stream.read_exact(&mut response_version)?;
 
-    if response_magic != SUBSTRATE_MAGIC {
-        return Err("Invalid magic bytes in response".into());
-    }
+    // if response_magic != SUBSTRATE_MAGIC {
+    //     return Err("Invalid magic bytes in response".into());
+    // }
 
     let remote_version = u32::from_be_bytes(response_version);
 
