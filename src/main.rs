@@ -11,7 +11,7 @@ const SUBSTRATE_VERSION: u32 = 5;
 fn perform_substrate_handshake<A: ToSocketAddrs>(addr: A) -> Result<(), Box<dyn std::error::Error>> {
     let mut stream = TcpStream::connect(addr)?;
 
-    // Send the Ethereum handshake
+    // Send the Substrate handshake
     let mut handshake = Vec::new();
     handshake.extend_from_slice(&SUBSTRATE_MAGIC);
     handshake.extend_from_slice(&SUBSTRATE_VERSION.to_be_bytes());
